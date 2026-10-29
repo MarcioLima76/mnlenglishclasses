@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNL English - Aulas de Sábado com Método Cambridge</title>
+    <!-- Fonte Google (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Ícones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* RESET E VARIÁVEIS */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+         :root {
+            --primary-color: #003366;
+            /* Azul escuro (Cambridge) */
+            --secondary-color: #E60000;
+            /* Vermelho (Destaque) */
+            --accent-color: #FFC107;
+            /* Amarelo (Empower) */
+            --light-bg: #f4f7f6;
+            --text-dark: #333;
+            --text-light: #fff;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        /* UTILITÁRIOS */
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.3s, background 0.3s;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(230, 0, 0, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: #cc0000;
+            transform: translateY(-3px);
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        /* HEADER (HERO SECTION) */
+        
+        .hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.9)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: var(--text-light);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
+            align-items: center;
+            gap: 50px;
+            max-width: 1000px;
+        }
+
+        .hero-logo {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 18px;
+        }
+
+        .hero-copy {
+            text-align: left;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--accent-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: 300;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+        /* SEÇÃO DE OFERTA / PROMOÇÃO */
+        
+        .promo-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+        
+        .promo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .promo-text h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .promo-text ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .promo-text ul li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .promo-text ul li i {
+            color: var(--secondary-color);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .promo-card {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .promo-card::before {
+            content: 'OFERTA';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+        
+        .promo-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .promo-card .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+        
+        .promo-card .price-sub {
+            font-size: 1rem;
+            margin-bottom: 25px;
+            opacity: 0.8;
+        }
+        
+        .promo-card .btn {
+            width: 100%;
+            margin-top: 20px;
+        }
+        /* SEÇÃO DE DEPOIMENTOS */
+        
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            position: relative;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .testimonial-card .quote-icon {
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .testimonial-photo img {
+            display: block;
+            width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .testimonial-card .testimonial-comment-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .testimonial-photo figcaption {
+            margin-top: 15px;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .fictional-note {
+            margin: -20px 0 30px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .student-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .student-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .student-info h4 {
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+        
+        .student-info span {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* SEÇÃO SOBRE O PROFESSOR (PORTFÓLIO) */
+        
+        .about-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 5px solid var(--light-bg);
+        }
+        
+        .about-content h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .about-content h3 {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .about-content p {
+            margin-bottom: 15px;
+            color: #555;
+            text-align: justify;
+        }
+
+        .about-content .about-site-link {
+            display: inline-block;
+            padding: 10px 18px;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .about-content .about-site-link:hover {
+            background-color: #e0a800;
+            transform: translateY(-2px);
+        }
+        
+        .qualifications {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .qualifications span {
+            background-color: var(--light-bg);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        /* FOOTER */
+        
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        /* RESPONSIVIDADE */
+        
+        @media (max-width: 992px) {
+            .promo-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-image {
+                order: -1;
+                /* Imagem fica em cima no mobile */
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0;
+            }
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .hero-logo {
+                width: min(55vw, 220px);
+                margin: 0 auto;
+            }
+            .hero-copy {
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .promo-text h2,
+            .about-content h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="container hero-content">
+            <img class="hero-logo" src="MNL.png" alt="Logo MNL English">
+            <div class="hero-copy">
+                <span class="hero-badge">Método Cambridge Empower</span>
+                <h1>Destrave seu Inglês</h1>
+                <p>Turmas reduzidas (máx. 4 alunos) com metodologia comunicativa e material internacional. Aprenda inglês real para o trabalho, viagens e vida.</p>
+                <a href="https://wa.me/5544988578237?text=Ol%C3%A1%2C%20Marcio!%20Quero%20garantir%20minha%20vaga%20na%20aula%20demonstrativa%20de%20s%C3%A1bado." class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Agendar Aula Grátis
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEÇÃO DE OFERTA -->
+    <section class="promo-section">
+        <div class="container">
+            <div class="promo-grid">
+                <div class="promo-text">
+                    <h2>Por que escolher a Turma de Sábado?</h2>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> <strong>Aula Demonstrativa Gratuita:</strong> Venha conhecer meu estilo de ensino e fazer o nivelamento.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Turmas VIP:</strong> No máximo 4 alunos para garantir que você fale e seja corrigido.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Material Cambridge:</strong> Utilizamos o livro <em>Empower</em>, com atividades práticas para situações do dia a dia, como conversas, trabalho e cultura.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Flexibilidade:</strong> Ideal para quem não tem tempo durante a semana.</li>
+                    </ul>
+                    <p style="margin-bottom: 20px;"><strong>Como funciona?</strong> A aula experimental serve para eu avaliar seu nível e montar a turma ideal para você.</p>
+                </div>
+
+                <div class="promo-card">
+                    <h3>Invista no seu Inglês com o Melhor Custo-Benefício</h3>
+                    <p style="margin: 15px 0; font-weight: 600;">🎯 Aula Avulsa Individual</p>
+                    <p style="margin-bottom: 5px;"><strong>R$ 60,00</strong></p>
+                    <p class="price-sub">(Experimente sem compromisso)</p>
+
+                    <p style="margin: 20px 0 10px; font-weight: 600;">🚀 Pacotes Individuais (Durante a semana)</p>
+                    <p style="margin-bottom: 15px;">4 aulas = <strong>R$ 220,00</strong></p>
+
+                    <p style="margin: 20px 0 10px; font-weight: 600;">👥 Turmas de Sábado (Máx. 4 alunos)</p>
+                    <p style="margin-bottom: 5px;">4 aulas = <strong>R$ 160,00</strong> (Apenas R$ 40/aula)</p>
+                    <p style="margin-bottom: 20px;">12 aulas = <strong>R$ 420,00</strong> (Apenas R$ 35/aula — Economize muito!)</p>
+
+                    <p style="font-size: 0.8rem; opacity: 0.9; margin-bottom: 20px;">*A primeira aula demonstrativa é 100% gratuita para nivelamento.</p>
+
+                    <a href="https://wa.me/5544988578237?text=Ol%C3%A1%2C%20Marcio!%20Vi%20a%20promo%C3%A7%C3%A3o%20no%20site%20e%20quero%20me%20inscrever%20na%20aula%20demonstrativa." class="btn" target="_blank">Garantir Vaga no WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO SOBRE O PROFESSOR (PORTFÓLIO) -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">Sobre o Professor</h2>
+            <div class="about-grid">
+                <div class="about-image">
+                    <a href="https://marciolima76.github.io/mnlenglish.com/" target="_blank" rel="noopener noreferrer" aria-label="Visitar o site da MNL English">
+                        <img src="MNLeditedphoto.png" alt="Logo MNL English">
+                    </a>
+                </div>
+                <div class="about-content">
+                    <h2>Marcio Nogueira de Lima</h2>
+                    <h3>Professor de Inglês com 15+ anos de experiência</h3>
+                    <p>Sou um professor dedicado com paixão por educação linguística e uma combinação única de expertise em ensino e conhecimento técnico. Minha jornada inclui três anos transformadores vivendo na Inglaterra, proporcionando imersão autêntica
+                        e compreensão cultural.</p>
+                    <p><strong>Minha Filosofia de Ensino:</strong> Combino métodos comunicativos baseados em evidências com aplicação prática da língua, focando no progresso do aluno e resultados tangíveis.</p>
+                    <p>Minha formação em Análise e Desenvolvimento de Sistemas me dá uma vantagem única no ambiente de aprendizagem digital atual, permitindo-me criar aulas online envolventes e solucionar problemas técnicos de forma integrada.</p>
+                    <p><a class="about-site-link" href="https://marciolima76.github.io/mnlenglish.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> Visite o site da MNL English</a></p>
+
+                    <div class="qualifications">
+                        <span><i class="fas fa-certificate"></i> CELTA (Cambridge)</span>
+                        <span><i class="fas fa-graduation-cap"></i> Letras (Unicesumar)</span>
+                        <span><i class="fas fa-laptop-code"></i> Análise e Desenvolvimento de Sistemas</span>
+                        <span><i class="fas fa-flag-usa"></i> Inglês C2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE DEPOIMENTOS -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">O que dizem os alunos</h2>
+            <div class="testimonial-grid">
+                <!-- Comentário de Felipe Madureira -->
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p><a href="https://lnkd.in/p/dbDn6cYa" target="_blank" rel="noopener noreferrer">Ver comentário no LinkedIn</a></p>
+                    <div class="student-info">
+                        <img src="https://ui-avatars.com/api/?name=Felipe+Madureira&background=random" alt="Felipe Madureira">
+                        <div>
+                            <h4>Felipe Madureira</h4>
+                            <span>Comentário no LinkedIn</span>
+                        </div>
+                    </div>
+                    <img class="testimonial-comment-image" src="Felipe_coment.png" alt="Captura do comentário de Felipe Madureira no LinkedIn">
+                </div>
+                <figure class="testimonial-card testimonial-photo">
+                    <img src="teachersday_MNL.jpeg" alt="Mensagem de agradecimento de alunos ao professor">
+                    <figcaption>Mensagem de agradecimento dos alunos</figcaption>
+                </figure>
+                <figure class="testimonial-card testimonial-photo">
+                    <a href="https://www.linkedin.com/feed/update/urn:li:activity:7426010742065303554/?dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287521594254826184704%2Curn%3Ali%3Aactivity%3A7426010742065303554%29" target="_blank" rel="noopener noreferrer">
+                        <img src="Raissa-coment.png" alt="Comentário de Raissa no LinkedIn">
+                        <figcaption>Publicação | LinkedIn</figcaption>
+                    </a>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="container">
+            <p>MNL ENGLISH Teaching Solutions - Maringá, PR</p>
+            <div class="social-links">
+                <a href="https://wa.me/5544988578237" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:marciolima76.ml@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://marciolima76.github.io/mnlenglish.com/" target="_blank"><i class="fas fa-globe"></i></a>
+            </div>
+            <p style="font-size: 0.8rem;">&copy; 2024 MNL English. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT (Para rolagem suave e pequenas animações) -->
+    <script>
+        // Rolagem suave para links internos (se houver)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animação simples para revelar elementos ao rolar (opcional)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        function observeTestimonialCard(card) {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(card);
+        }
+
+        // Aplicar a animação aos cards de depoimento
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            observeTestimonialCard(card);
+        });
+    </script>
+</body>
+
+</html>
